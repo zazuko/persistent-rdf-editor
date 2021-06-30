@@ -1,0 +1,19 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "persistent-rdf-editor",
+      "path": "./dist/06ec6de019401222e46a.js",
+      "properties": [
+        {
+          "name": "updateComplete",
+          "type": "Promise<any> | undefined"
+        }
+      ]
+    },
+    {
+      "name": "persistent-rdf-editor",
+      "path": "./persistent-rdf-editor.js"
+    }
+  ]
+}

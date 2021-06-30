@@ -1,0 +1,66 @@
+{
+  "name": "@zazuko/persistent-rdf-editor",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zazuko/persistent-rdf-editor",
+  "author": "Zazuko GmbH",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "analyze": "run-p analyze:*",
+    "analyze:wc": "wca --format json --outFile ./custom-elements.json",
+    "analyze:readme": "wca --outFile ./README.md",
+    "analyze:lit": "lit-analyzer --strict --quiet --rules.no-invalid-css off",
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production",
+    "lint:eslint": "eslint --quiet --ext .js,.html . --ignore-path .eslintignore",
+    "format:eslint": "eslint --quiet --ext .js,.html . --fix --ignore-path .eslintignore",
+    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path .eslintignore",
+    "format:prettier": "prettier \"**/*.js\" --write --ignore-path .eslintignore",
+    "lint": "run-s lint:*",
+    "format": "run-s format:*",
+    "release": "changeset publish"
+  },
+  "dependencies": {
+    "@rdfjs-elements/rdf-editor": "^0.4.6",
+    "lit": "^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "@changesets/cli": "^2.16.0",
+    "@open-wc/building-webpack": "^2.13.46",
+    "@open-wc/eslint-config": "^4.3.0",
+    "api-viewer-element": "^0.4.4",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "lit-analyzer": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "web-component-analyzer": "^1.1.6",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "semi": false
+  },
+
+  "lint-staged": {
+    "*.js": [
+      "eslint --quiet --fix",
+      "prettier --write"
+    ]
+  }
+}
