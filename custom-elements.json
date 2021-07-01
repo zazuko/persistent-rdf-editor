@@ -3,7 +3,12 @@
   "tags": [
     {
       "name": "persistent-rdf-editor",
-      "path": "./persistent-rdf-editor.js"
+      "path": "./persistent-rdf-editor.js",
+      "properties": [
+        {
+          "name": "contorller"
+        }
+      ]
     }
   ]
 }
