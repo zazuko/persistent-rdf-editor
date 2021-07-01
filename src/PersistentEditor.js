@@ -24,25 +24,35 @@ export class PersistentEditor extends LitElement {
 
   constructor() {
     super()
-    this.contorller = new PersistentEditorController(this)
+    this.controller = new PersistentEditorController(this)
   }
 
   render() {
-    return html` <lion-tabs .selectedIndex="${this.contorller.currentDocument}">
-      ${this.contorller.documents.map(
+    return html` <lion-tabs
+      .selectedIndex="${this.controller.currentDocument}"
+      @selected-changed="${this.__selectedDocumentChanged}"
+    >
+      ${this.controller.documents.map(
         doc => html`
           <button slot="tab">${doc.title}</button>
           <rdf-editor
             slot="panel"
+            auto-parse
             .value="${doc.value}"
             .format="${doc.format}"
+            @quads-changed="${e =>
+              this.controller.saveContents(doc.id, e.target.value)}"
           ></rdf-editor>
         `
       )}
-      <button slot="tab" @click="${() => this.contorller.newDocument()}">
+      <button slot="tab" @click="${() => this.controller.newDocument()}">
         (+)
       </button>
       <div slot="panel"></div>
     </lion-tabs>`
+  }
+
+  __selectedDocumentChanged(e) {
+    this.controller.loadDocument(e.target.selectedIndex)
   }
 }

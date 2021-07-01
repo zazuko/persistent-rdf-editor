@@ -6,7 +6,7 @@
       "path": "./persistent-rdf-editor.js",
       "properties": [
         {
-          "name": "contorller"
+          "name": "controller"
         }
       ]
     }

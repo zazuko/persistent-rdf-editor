@@ -4,4 +4,4 @@
 
 | Property     |
 |--------------|
-| `contorller` |
+| `controller` |
