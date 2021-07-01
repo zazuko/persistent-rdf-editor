@@ -13,11 +13,14 @@ export class PersistentEditor extends LitElement {
 
       lion-tabs {
         height: 100%;
+        display: flex;
+        flex-flow: column;
       }
 
       rdf-editor {
         flex-grow: 1;
-        height: calc(100vh - 21px);
+        border: solid 1px red;
+        // height: calc(100vh - 21px);
       }
     `
   }
